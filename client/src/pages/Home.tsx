@@ -5,6 +5,7 @@ import GallerySection from "../components/GallerySection";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
 import ProductsSection from "../components/ProductsSection";
+import StorySection from "../components/StorySection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ProductsSection />
       <GallerySection />
       <ConfiguratorSection />
+      <StorySection />
       <CraftSection />
       <ContactCTA />
     </main>

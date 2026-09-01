@@ -9,6 +9,7 @@ export default function Navbar() {
     ["produkte", t("Modelle", "Models")],
     ["galerie", t("Impressionen", "Gallery")],
     ["individualisierung", t("Individualisierung", "Customisation")],
+    ["geschichte", t("Geschichte", "Story")],
     ["manufaktur", t("Manufaktur", "Craft")],
     ["kontakt", t("Kontakt", "Contact")],
   ];
@@ -16,9 +17,12 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
       <div className="container flex h-20 items-center justify-between">
-        <a href="#top" className="flex items-center gap-3" aria-label="Hellweg Holster Startseite">
+        <a href="#top" className="flex items-center gap-3" aria-label="Hellweg Startseite">
           <img src="/hellweg-products/hellweg-h.png" alt="" className="h-10 w-10 object-contain" />
-          <span className="font-mono-custom text-[11px] tracking-[0.22em] text-white">HELLWEG HOLSTER</span>
+          <span className="leading-none">
+            <span className="block font-mono-custom text-[12px] tracking-[0.25em] text-white">HELLWEG</span>
+            <span className="mt-1.5 block text-[8px] uppercase tracking-[0.16em] text-white/45">Protect Tomorrow. Secure Today.</span>
+          </span>
         </a>
         <nav className="hidden items-center gap-7 lg:flex" aria-label={t("Hauptnavigation", "Main navigation")}>
           {links.map(([id, label]) => (

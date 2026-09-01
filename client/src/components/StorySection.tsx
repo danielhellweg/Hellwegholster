@@ -1,168 +1,69 @@
-/*
- * HELLWEG EUROPE – Story Section
- * Dark Forge: Asymmetric layout, family story, "Designed in Germany – Produced in Europe – Handmade"
- */
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-
-const CRAFTSMAN_IMG = "/manus-storage/craftsman-hands_13139efe.jpg";
-const DANIEL_IMG = "/manus-storage/daniel-hellweg_67021339.jpg";
-const BENJAMIN_IMG = "/manus-storage/benjamin-hellweg_c1df0485.png";
-const TOGETHER_IMG = "/manus-storage/daniel-benjamin-together_0b1767c1.png";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function StorySection() {
-  const { t, tJsx } = useLanguage();
-  const ref1 = useScrollReveal(0);
-  const ref2 = useScrollReveal(150);
-  const ref3 = useScrollReveal(300);
+  const { t } = useLanguage();
+  const values = [
+    t("Handwerk ohne Kompromisse", "Craft without compromise"),
+    t("Respekt vor Material und Funktion", "Respect for material and function"),
+    t("Persönliche Fertigung statt Massenware", "Personal craftsmanship instead of mass production"),
+  ];
 
   return (
-    <section id="story" className="bg-[#0D0D0D] py-24 md:py-36 overflow-hidden">
+    <section id="geschichte" className="bg-[var(--black-2)] py-24 md:py-36">
       <div className="container">
-
-        {/* Badge Strip – Designed in Germany */}
-        <div className="flex flex-wrap gap-6 mb-20 border-b border-white/6 pb-10">
-          {[
-            { label: "Designed in Germany" },
-            { label: "Produced in Europe" },
-            { label: "100% Handmade" },
-            { label: "Hellweg® – Eingetragene Marke" },
-          ].map((badge, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <span className="text-[#C9A227] text-xs">✦</span>
-              <span className="font-mono-custom text-white/50 text-xs tracking-[0.2em] uppercase">
-                {badge.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Main Story Layout */}
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center mb-24">
-          {/* Left: Text */}
-          <div ref={ref1} className="reveal">
-            <p className="font-mono-custom text-[#C9A227] text-xs tracking-[0.3em] uppercase mb-4">
-              {t("Unsere Geschichte", "Our Story")}
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-              {tJsx(
-                <>Eine Familie.<br />Eine Leidenschaft.<br /><span className="text-[#C9A227]">Zwei Kontinente.</span></>,
-                <>One Family.<br />One Passion.<br /><span className="text-[#C9A227]">Two Continents.</span></>
-              )}
+        <p className="font-mono-custom text-xs uppercase tracking-[0.22em] text-[var(--gold)]">
+          04 · {t("Unsere Geschichte", "Our story")}
+        </p>
+        <div className="mt-7 grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div>
+            <h2 className="font-display text-5xl leading-none md:text-8xl">
+              {t("Von Melbourne nach Europa.", "From Melbourne to Europe.")}
             </h2>
-            <div className="gold-line w-16 mb-8" />
-            <div className="space-y-5 font-body text-white/60 text-base leading-relaxed">
-              <p>
-                {t(
-                  "Alles begann in Australien. Albert Hellweg gründete Hellweg Australia 1979 in Melbourne als kleinen Familienbetrieb – mit nichts weiter als handwerklichem Können, einem tiefen Respekt vor dem Material und dem Anspruch, niemals Kompromisse einzugehen. Jeder Holster, der seine Werkstatt verließ, war ein Versprechen: Qualität, die hält.",
-                  "It all started in Australia. Albert Hellweg founded Hellweg Australia in 1979 in Melbourne as a small family business – with nothing more than craftsmanship, a deep respect for materials, and the commitment to never compromise. Every holster that left his workshop was a promise: quality that lasts."
-                )}
-              </p>
-              <p className="text-white/80 font-medium">
-                {t(
-                  "Er ist nicht mehr unter uns. Aber sein Vermächtnis lebt weiter.",
-                  "He is no longer with us. But his legacy lives on."
-                )}
-              </p>
-              <p>
-                {t(
-                  "Ich bin Daniel Hellweg – und zusammen mit Benjamin Hellweg führe ich die Hellweg-Tradition jetzt in Europa fort. Was Albert in Melbourne aufgebaut hat, findet hier seine europäische Heimat. Dieselbe Philosophie, dieselbe Präzision, dieselbe Leidenschaft – jetzt für den europäischen Markt.",
-                  "I am Daniel Hellweg – and together with Benjamin Hellweg, I carry the Hellweg tradition forward in Europe. What Albert built in Melbourne now finds its European home. The same philosophy, the same precision, the same passion – now for the European market."
-                )}
-              </p>
-            </div>
-          </div>
-
-          {/* Right: Image */}
-          <div ref={ref2} className="reveal relative">
-            <div className="relative overflow-hidden">
-              <img
-                src={CRAFTSMAN_IMG}
-                alt={t("Handwerk bei Hellweg", "Hellweg Craftsmanship")}
-                className="w-full h-80 md:h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 to-transparent" />
-            </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-[#C9A227] p-6 hidden md:block">
-              <p className="font-mono-custom text-[#0A0A0A] text-[10px] tracking-[0.2em] uppercase font-bold">
-                Designed in Germany
-              </p>
-              <p className="font-mono-custom text-[#0A0A0A] text-[10px] tracking-[0.2em] uppercase">
-                Produced in Europe
-              </p>
-              <p className="font-mono-custom text-[#0A0A0A] text-[10px] tracking-[0.2em] uppercase">
-                100% Handmade
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Second row: Team portraits side by side */}
-        <div ref={ref3} className="reveal">
-          {/* Quote */}
-          <div className="mb-16">
-            <blockquote className="border-l-2 border-[#C9A227] pl-6 max-w-2xl">
-              <p className="font-display text-2xl md:text-3xl text-white italic leading-relaxed">
-                {t(
-                  "\"Hellweg Europe ist kein Konzern. Wir sind eine Familie, die ihr Handwerk liebt.\"",
-                  "\"Hellweg Europe is not a corporation. We are a family that loves its craft.\""
-                )}
-              </p>
-              <footer className="mt-4 font-mono-custom text-[#C9A227] text-xs tracking-widest uppercase">
-                — Daniel Hellweg
-              </footer>
+            <blockquote className="mt-10 border-l-2 border-[var(--gold)] pl-6 font-display text-2xl italic leading-relaxed text-white/85 md:text-3xl">
+              {t("Qualität, die hält – und ein Handwerk, das weiterlebt.", "Quality that lasts – and a craft that lives on.")}
             </blockquote>
           </div>
 
-          {/* Combined portrait */}
-          <div className="relative group overflow-hidden max-w-2xl">
-            <div className="relative overflow-hidden" style={{ aspectRatio: '3/2' }}>
-              <img
-                src={TOGETHER_IMG}
-                alt="Daniel und Benjamin Hellweg"
-                className="w-full h-full object-cover object-top transition-all duration-700"
-                style={{ filter: "grayscale(20%) brightness(0.9)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent" />
+          <div className="space-y-6 text-base font-light leading-relaxed text-white/65 md:text-lg">
+            <p>
+              {t(
+                "Die Geschichte von Hellweg begann 1979 in Melbourne. Albert Hellweg gründete Hellweg Australia als kleinen Familienbetrieb – getragen von handwerklichem Können, einem tiefen Respekt vor dem Material und dem Anspruch, bei Sicherheit und Qualität keine Kompromisse einzugehen.",
+                "The Hellweg story began in Melbourne in 1979. Albert Hellweg founded Hellweg Australia as a small family business – built on craftsmanship, deep respect for materials and the determination never to compromise on safety or quality."
+              )}
+            </p>
+            <p>
+              {t(
+                "In den 1990er-Jahren erweiterte Hellweg seine Fertigung um moderne Schutz- und Tragesysteme. Zu Beginn der 2000er-Jahre lieferte das Unternehmen Schutzwesten an verschiedene Polizeikräfte und an die Australian Defence Force – Ausrüstung, die unter anderem im Irak und in Afghanistan eingesetzt wurde.",
+                "In the 1990s, Hellweg expanded its manufacturing into modern protective and load-carrying systems. By the early 2000s, the company was supplying body armour to various police forces and the Australian Defence Force – equipment used in Iraq and Afghanistan, among other deployments."
+              )}
+            </p>
+            <p>
+              {t(
+                "Heute wird Hellweg-Ausrüstung nach Angaben von Hellweg Australia von nahezu jeder Polizeibehörde Australiens genutzt – ebenso von Justizvollzug, kommunalen Behörden, Krankenhaussicherheit, Vollzugsdiensten und führenden privaten Sicherheitsunternehmen. Entwicklung, Konstruktion und Fertigung erfolgen in Australien mit eigener Technik, CAD-Modellierung und internen Prüfverfahren.",
+                "Today, according to Hellweg Australia, Hellweg equipment is used by almost every police force in Australia, as well as corrections, councils, hospital security, enforcement departments and leading private security providers. Design, engineering and manufacturing take place in Australia with in-house technology, CAD modelling and testing."
+              )}
+            </p>
+            <p>
+              {t(
+                "Jedes Produkt steht dabei für dieselbe Idee: präzise gefertigt, funktional durchdacht und für Menschen gemacht, die sich im Einsatz darauf verlassen müssen. Diese Philosophie bildet bis heute das Fundament von Hellweg.",
+                "Every product stands for the same idea: precisely made, functionally considered and created for people who must rely on it in service. This philosophy remains the foundation of Hellweg today."
+              )}
+            </p>
+            <p className="text-white/85">
+              {t(
+                "Heute wird das Unternehmen von Daniel Hellweg geführt. Er führt die Familientradition in Europa fort – mit derselben Präzision, derselben Leidenschaft und dem Anspruch, jedes Holster individuell für seinen späteren Einsatz zu fertigen.",
+                "Today, the company is led by Daniel Hellweg. He continues the family tradition in Europe – with the same precision, the same passion and the commitment to make every holster individually for its intended use."
+              )}
+            </p>
+            <div className="grid gap-3 pt-5 sm:grid-cols-3">
+              {values.map((value) => (
+                <div key={value} className="border border-white/10 bg-black/30 px-5 py-5 text-sm text-white/70">
+                  <span className="mb-3 block text-[var(--gold)]">✦</span>{value}
+                </div>
+              ))}
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-5 flex gap-6">
-              <p className="font-mono-custom text-[#C9A227] text-[10px] tracking-[0.2em] uppercase font-bold">
-                Daniel Hellweg
-              </p>
-              <span className="text-[#C9A227]/30 text-[10px]">·</span>
-              <p className="font-mono-custom text-[#C9A227] text-[10px] tracking-[0.2em] uppercase font-bold">
-                Benjamin Hellweg
-              </p>
-            </div>
-          </div>
-
-          {/* Values strip below portraits */}
-          <div className="mt-12 space-y-4 max-w-2xl">
-            {[
-              {
-                de: "Jedes Produkt trägt das Hellweg-H – nicht nur als Logo, sondern als Versprechen.",
-                en: "Every product carries the Hellweg H – not just as a logo, but as a promise.",
-              },
-              {
-                de: "Designed in Germany. Produziert in Europa. 100% handgefertigt.",
-                en: "Designed in Germany. Produced in Europe. 100% handmade.",
-              },
-              {
-                de: "Hellweg® ist eine eingetragene Marke – für Qualität ohne Kompromisse.",
-                en: "Hellweg® is a registered trademark – for quality without compromise.",
-              },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <span className="text-[#C9A227] mt-1 shrink-0">✦</span>
-                <p className="font-body text-white/55 text-sm leading-relaxed">
-                  {t(item.de, item.en)}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
-
       </div>
     </section>
   );
