@@ -11,7 +11,7 @@ export default function Impressum() {
         <h1 className="mt-12 font-display text-6xl md:text-8xl">{t("Impressum", "Legal notice")}</h1>
         <div className="mt-12 space-y-8 text-base leading-relaxed text-white/65">
           <section>
-            <h2 className="font-display text-3xl text-white">Hellweg GmbH i. G.</h2>
+            <h2 className="font-display text-3xl text-white">Hellweg GmbH</h2>
             <p className="mt-3">Auelsweg 22<br />53797 Lohmar<br />Deutschland</p>
           </section>
           <section>
@@ -20,8 +20,7 @@ export default function Impressum() {
           </section>
           <section>
             <h2 className="font-display text-3xl text-white">{t("Registerangaben", "Register information")}</h2>
-            <p className="mt-3">{t("Registergericht", "Register court")}: Amtsgericht Siegburg<br />{t("Handelsregisternummer", "Commercial register number")}: {t("folgt nach Eintragung", "to follow after registration")}</p>
-            <p className="mt-3 text-sm text-white/40">{t("Die Gesellschaft befindet sich derzeit in Gründung. Die Registernummer wird nach erfolgter Eintragung ergänzt.", "The company is currently being incorporated. The registration number will be added after registration.")}</p>
+            <p className="mt-3">{t("Registergericht", "Register court")}: Amtsgericht Siegburg<br />{t("Handelsregisternummer", "Commercial register number")}: HRB 18915</p>
           </section>
           <section><h2 className="font-display text-3xl text-white">{t("Kontakt", "Contact")}</h2><p className="mt-3">E-Mail: <a className="text-[var(--gold)]" href="mailto:info@hellweg.eu">info@hellweg.eu</a></p></section>
           <p>Hellweg® {t("ist eine eingetragene Marke.", "is a registered trademark.")}</p>
