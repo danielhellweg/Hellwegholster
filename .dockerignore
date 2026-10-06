@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.sites-checkout
+.openai
+.env
+.env.*
+audit
+qa
+tests
+*.tar.gz
+*.tgz

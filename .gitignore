@@ -3,3 +3,13 @@ dist/
 .pnpm-store/
 .DS_Store
 *.log
+.env
+.env.*
+!.env.example
+.openai/
+audit/
+qa/
+public/review/
+*.zip
+*.tar.gz
+*.tgz
